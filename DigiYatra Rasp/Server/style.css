@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background-color: hsl(212, 45%, 89%);
+}
+
+.container {
+        position: relative;
+            top: 40px;
+    background-color: white;
+    border-radius: 1rem;
+    font-family: 'outfit';
+    width: 300px;
+    height: auto;
+    margin: 3rem auto;
+    padding: 1rem;
+}
+
+h2 {
+    margin: 16px 0;
+    font-size: 17px;
+    font-weight: bolder;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+p {
+    font-size: 15px;
+    padding: 0 1rem;
+    text-align: center;
+
+}
+
+#scanner-container video{
+    width: 100%;
+}
+#QRcode {
+     border-radius: 10px;
+     width: 100%;
+     height: 260px;
+ }
+
+
+.header {
+     position: absolute;
+     top: 0;
+     margin: 0;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     height: 100vh;
+     width: 100%;
+     background: linear-gradient(to right, #007BFF, #00BFFF);
+     height: 60px;
+ }
+
+#flight_info{
+    border: 1px solid;
+font-family: monospace;
+    font-weight: 700;
+    margin: 10px 0 10px 0;
+}
+
+
+#QR{
+   border: 5px solid;
+}
+
+#done{
+position: absolute;
+    width: 58%;
+    top: 35px;
+    right: 63px;
+}
+
+#done {
+     position: absolute;
+     width: 58%;
+     top: 35px;
+     right: 63px;
+     display: none;
+ }
