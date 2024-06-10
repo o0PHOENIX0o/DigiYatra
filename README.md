@@ -9,6 +9,7 @@ The DigiYatra system implemented on a Raspberry Pi offers a fundamental yet effe
 ### Step 1: Prepare the Face Images
 
 1. **Create Database on MySQL**:
+
     ```bash
         create database DigiYatra;
 
@@ -32,6 +33,7 @@ The DigiYatra system implemented on a Raspberry Pi offers a fundamental yet effe
 
 2. **Generate Encodings**:
    - Run the `encodeGenerator.py` script to create a ` pickle` file containing the encoded facial features of the uploaded images.
+
      ```bash
      python controller/encodeGenerator.py
      ```
@@ -40,12 +42,14 @@ The DigiYatra system implemented on a Raspberry Pi offers a fundamental yet effe
 
 1. **Run the Facial Recognition Script**:
    - Execute the `main.py` script, which will detect the face of the passenger.
+
      ```bash
      python controller/main.py
      ```
 
 2. **Run the QR Code Reader Script**:
    - Execute the `reader.py` script to read the QR code displayed on the website using a USB QR code reader.
+
      ```bash
      python controller/reader.py
      ```
@@ -54,18 +58,21 @@ The DigiYatra system implemented on a Raspberry Pi offers a fundamental yet effe
 
 1. **Navigate to the Server Folder**:
    - Change to the `server` directory:
+
      ```bash
      cd server
      ```
 
 2. **Run the Web Server**:
    - Execute the `server.py` script to serve the website over HTTPS.
+
      ```bash
      python server/server.py
      ```
 
 3. **Run the API Server**:
    - Execute the `app.py` script to provide an API for the website.
+
      ```bash
      python server/app.py
      ```
