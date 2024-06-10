@@ -35,7 +35,7 @@ The DigiYatra system implemented on a Raspberry Pi offers a fundamental yet effe
    - Run the `encodeGenerator.py` script to create a ` pickle` file containing the encoded facial features of the uploaded images.
 
      ```bash
-     python controller/encodeGenerator.py
+         python controller/encodeGenerator.py
      ```
 
 ### Step 2: Set Up and Run the Facial Recognition System
@@ -44,14 +44,14 @@ The DigiYatra system implemented on a Raspberry Pi offers a fundamental yet effe
    - Execute the `main.py` script, which will detect the face of the passenger.
 
      ```bash
-     python controller/main.py
+         python controller/main.py
      ```
 
 2. **Run the QR Code Reader Script**:
    - Execute the `reader.py` script to read the QR code displayed on the website using a USB QR code reader.
 
      ```bash
-     python controller/reader.py
+         python controller/reader.py
      ```
 
 ### Step 3: Set Up and Run the Web Server
@@ -60,21 +60,21 @@ The DigiYatra system implemented on a Raspberry Pi offers a fundamental yet effe
    - Change to the `server` directory:
 
      ```bash
-     cd server
+         cd server
      ```
 
 2. **Run the Web Server**:
    - Execute the `server.py` script to serve the website over HTTPS.
 
      ```bash
-     python server/server.py
+         python server/server.py
      ```
 
 3. **Run the API Server**:
    - Execute the `app.py` script to provide an API for the website.
 
      ```bash
-     python server/app.py
+         python server/app.py
      ```
 
 ### Step 4: Use the Web Interface
@@ -100,12 +100,12 @@ The DigiYatra system implemented on a Raspberry Pi offers a fundamental yet effe
 
 1. **Generate face encodings**:
    ```bash
-   python DigiYatra/DigiYatra Rasp/controller/encodeGenerator.py
+       python DigiYatra/DigiYatra Rasp/controller/encodeGenerator.py
+   ```
 
 2. **Run the facial recognition script**:
     ```bash
         python DigiYatra/DigiYatra Rasp/controller/main.py
-
     ```
 
 3. **Run the QR code reader script**:
