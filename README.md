@@ -23,7 +23,7 @@ The DigiYatra system implemented on a Raspberry Pi offers a fundamental yet effe
 
 2. **insert data in table**:
     - use server/insert.py file to insert data in table
-
+      
      ```bash
         python DigiYatra/DigiYatra Rasp/server/insert.py
     ```
