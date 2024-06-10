@@ -22,7 +22,7 @@ The DigiYatra system implemented on a Raspberry Pi offers a fundamental yet effe
 
 2. **insert data in table**:
     - use server/insert.py file to insert data in table
-    
+
      ```bash
         python DigiYatra/DigiYatra Rasp/server/insert.py
     ```
@@ -31,7 +31,7 @@ The DigiYatra system implemented on a Raspberry Pi offers a fundamental yet effe
    - Upload the face images of the passengers to the `controller/Images` folder.
 
 2. **Generate Encodings**:
-   - Run the `encodeGenerator.py` script to create a `.p` file containing the encoded facial features of the uploaded images.
+   - Run the `encodeGenerator.py` script to create a ` pickle` file containing the encoded facial features of the uploaded images.
      ```bash
      python controller/encodeGenerator.py
      ```
