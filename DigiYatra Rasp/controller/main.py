@@ -3,6 +3,7 @@ import pickle
 import face_recognition
 import numpy as np
 import paho.mqtt.client as mqtt
+from picamera2 import Picamera2 #for raspberry pi cam
 
 broker = "192.168.0.201"  # Broker address
 port = 1883
@@ -42,11 +43,19 @@ print("Loaded encoded faces file")
 client.loop_start()
 
 # Initialize webcam
-cap = cv2.VideoCapture(0)  # '0' is the ID for the default camera, change if you have multiple cameras
+# cap = cv2.VideoCapture(0)  # '0' is the ID for the default camera, change if you have multiple cameras
 
-if not cap.isOpened():
-    print("Error: Could not open webcam.")
-    exit()
+# if not cap.isOpened():
+#     print("Error: Could not open webcam.")
+#     exit()
+
+#for raspberry pi cam
+piCam = Picamera2()
+piCam.preview_configuration.main.size = (1280, 720)
+piCam.preview_configuration.main.format = "RGB888"
+piCam.preview_configuration.align()
+piCam.configure("preview")
+piCam.start()
 
 count = 0
 while True:
