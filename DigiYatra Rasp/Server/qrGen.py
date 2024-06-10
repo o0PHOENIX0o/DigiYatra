@@ -4,8 +4,8 @@ from io import BytesIO
 
 def get_db():
     db = mysql.connector.connect(
-        host='192.168.0.112',
-        user='digiyatra',
+        host='192.168.0.201',
+        user='DigiYatra',
         password='Phoenix@001',
         database='DigiYatra',
     )
@@ -15,7 +15,7 @@ def close_db(db):
     if db is not None:
         db.close()
 
-def insert_qr_code(id, data):
+def insert_qr_code(QR_data, PNR, Info):
     # Create a QR code instance
     qr = qrcode.QRCode(
         version=1,
@@ -25,7 +25,7 @@ def insert_qr_code(id, data):
     )
 
     # Add data to the QR code
-    qr.add_data(data)
+    qr.add_data(QR_data)
     qr.make(fit=True)
 
     # Create an image from the QR code instance
@@ -41,8 +41,8 @@ def insert_qr_code(id, data):
     try:
         db = get_db()
         with db.cursor() as cursor:
-            insert_query = "UPDATE FlightInformation SET QRCode=%s WHERE id=%s;"
-            cursor.execute(insert_query, (image_data, id))
+            insert_query = "INSERT into FlightInformation (PNR, Flight_information, QR_code) values(%s, %s, %s)"
+            cursor.execute(insert_query, (PNR,Info,image_data))
             db.commit()
             print("Image inserted successfully")
     except Exception as e:
@@ -51,4 +51,4 @@ def insert_qr_code(id, data):
         close_db(db)
 
 # Example usage
-insert_qr_code(10, "3")
+insert_qr_code("person2", PNR=567890, Info="Flight EA567 from Toronto to Vancouver, Departure: 2024-07-05 10:00, Arrival: 2024-07-05 12:00")

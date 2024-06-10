@@ -3,13 +3,14 @@ import face_recognition
 import os
 import pickle
 
-folderPath = 'face_recognition/Images'
+folderPath = 'DigiYatra/DigiYatra Rasp/controller/Images'
 
 PathList = os.listdir(folderPath)
-print(PathList)
+print("PathList --> ",PathList)
 imgList = []
 ids = []
 for path in PathList:
+    # print(os.path.join(folderPath,path))
     imgList.append(cv2.imread(os.path.join(folderPath,path)))
     ids.append(os.path.splitext(path)[0])
 
@@ -25,13 +26,14 @@ def findEncodeings(imagesList):
     
     return encodeList
 
-print("start encoding")
+
+print("start encoding...")
 encodeListKnown = findEncodeings(imgList)
 encodeListKnownWithId = [encodeListKnown, ids]
-print("done encoding")
-print(encodeListKnown)
+print("done encoding/n")
+# print(encodeListKnown)
 
-file = open("face_recognition/EncodeFile.p", 'wb')
+file = open("DigiYatra/DigiYatra Rasp/controller/EncodeFile.p", 'wb')
 
 pickle.dump(encodeListKnownWithId,file)
 file.close()

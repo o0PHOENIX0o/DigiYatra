@@ -1,10 +1,10 @@
 import serial
 import paho.mqtt.client as mqtt
 
-broker = "172.16.16.176"
-port = 1883
+broker = "192.168.0.201" #mqtt broker address
+port = 1883              #mqtt port
 
-idTopic = 'idTopic'
+idTopic = 'idTopic'      #msg topic to publish the msg read by barcode scanner
 
 def connectToMqtt():
     client.connect(broker, port=port)
@@ -17,19 +17,10 @@ def on_connect(client, userdata, flags, rc):
         print("not Connected to MQTT Broker")
         connectToMqtt();
 
-def on_message(client, userdata, message):
-    pass
-    # global middle_factor, min_contour_area,running
-    # msg = message.payload.decode()
-    # Topic = message.topic
-    # print(f"Received message '{msg}' on topic '{Topic}'")
-
-    # print(running,"on message")
-
 
 client = mqtt.Client("RaspberryPiClient") 
 client.on_connect = on_connect
-client.on_message = on_message
+
 
 connectToMqtt();
 

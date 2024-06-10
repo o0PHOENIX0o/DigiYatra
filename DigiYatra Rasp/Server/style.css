@@ -5,9 +5,16 @@
 }
 
 body {
-    height: 100vh;
     width: 100%;
-    background-color: hsl(212, 45%, 89%);
+    background-color: hsl(0deg 0% 92.43%);
+}
+
+
+.Main_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .container {
@@ -16,7 +23,7 @@ body {
     background-color: white;
     border-radius: 1rem;
     font-family: 'outfit';
-    width: 300px;
+        max-width: 80%;
     height: auto;
     margin: 3rem auto;
     padding: 1rem;
@@ -37,13 +44,17 @@ p {
 
 }
 
+#scanner-container{
+    position: relative;
+}
+
 #scanner-container video{
     width: 100%;
 }
 #QRcode {
      border-radius: 10px;
      width: 100%;
-     height: 260px;
+     height: 100%;
  }
 
 
@@ -60,11 +71,22 @@ p {
      height: 60px;
  }
 
+.navbar-brand{
+    font-weight: bold;
+}
+
+
 #flight_info{
     border: 1px solid;
-font-family: monospace;
-    font-weight: 700;
+    font-family: monospace;
+    /* font-weight: 700; */
     margin: 10px 0 10px 0;
+
+    background-color: white;
+        color: black;
+        font-weight: 800;
+        font-size: 1.5rem;
+        height: fit-content;
 }
 
 
@@ -73,16 +95,42 @@ font-family: monospace;
 }
 
 #done{
-position: absolute;
-    width: 58%;
-    top: 35px;
-    right: 63px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: none;
+    transform: translate(-50%, -50%);
 }
 
-#done {
-     position: absolute;
-     width: 58%;
-     top: 35px;
-     right: 63px;
-     display: none;
+.Loader-div{
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(8px);
+}
+
+ /* HTML: <div class="loader"></div> */
+ .loader {
+     color: #000;
+     width: 4px;
+     aspect-ratio: 1;
+     border-radius: 50%;
+     box-shadow: 19px 0 0 7px, 38px 0 0 3px, 57px 0 0 0;
+     transform: translateX(-38px);
+     animation: l21 .5s infinite alternate linear;
+
+    position: absolute;
+        top: 50%;
+        left: 50%;
+ }
+
+ @keyframes l21 {
+     50% {
+         box-shadow: 19px 0 0 3px, 38px 0 0 7px, 57px 0 0 3px
+     }
+
+     100% {
+         box-shadow: 19px 0 0 0, 38px 0 0 3px, 57px 0 0 7px
+     }
  }

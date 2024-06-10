@@ -7,6 +7,7 @@ var QR = document.getElementById('QR');
 
 document.addEventListener('DOMContentLoaded', function () {
     // Configure QuaggaJS
+    console.log("running Quagga");
     Quagga.init({
         inputStream: {
             name: "Live",
@@ -32,31 +33,41 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Add event listener for barcode detection
     Quagga.onDetected(async function (detectedResult) { // Renamed to detectedResult to avoid conflict
+        console.log("barcode detected");
 
         var code = detectedResult['codeResult']['code'];
-        console.log("Barcode detected and processed: ", code);
+        // console.log("Barcode detected and processed: ", code);
         // resultDisplay.innerHTML = code; // Update the display element
-
         if (code !== prev_code) {
             prev_code = code;
+            console.log("sending req---------", code);
+            
+            document.getElementById('Loader-div').display = 'block';
             try {
-                const response = await fetch('https://172.16.16.176:5000/process_barcode', {
+                
+                const response = await fetch('https://192.168.0.106:5000/process_barcode', {
                     method: 'POST',
+                    mode: 'cors',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({ barcode: code }),
                 });
-                const data = await response.json();
-                console.log(data);
 
-                if (data) {
-                    var imgElement = document.createElement('img');
-                    imgElement.id = 'QRcode';
-                    imgElement.src = 'data:image/jpeg;base64,' + data.QRCode;
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                    }
                     
+                    const data = await response.json();
+                    console.log(data);
+                    
+                    if (data) {
+                        var imgElement = document.createElement('img');
+                    imgElement.id = 'QRcode';
+                    imgElement.src = 'data:image/jpeg;base64,' + data.QR_code;
+
                     QR.appendChild(imgElement);
-                    info.innerText = data.FlightDetails;
+                    info.innerText = data.Flight_information;
                     info.style.backgroundColor = "White";
                     info.style.color = "Black";
                     info.style.fontWeight = 800;
@@ -65,12 +76,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                     info.innerText = "not found";
                     done.style.display = "none";
-                    info.style.backgroundColor = "red"; 
-                    info.style.color = "White"; 
-                    info.style.fontWeight = 800; 
+                    info.style.backgroundColor = "red";
+                    info.style.color = "White";
+                    info.style.fontWeight = 800;
                     Quagga.start();
-                }
-
+                    }
+                    
+                document.getElementById('Loader-div').display = 'none';
 
 
             } catch (error) {
@@ -86,3 +98,4 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+

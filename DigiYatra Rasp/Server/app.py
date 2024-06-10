@@ -97,12 +97,12 @@ def barcode():
         return jsonify(False)
 
 if __name__ == '__main__':
-    app.config['DB_HOST'] = '172.16.16.176'
-    app.config['DB_USER'] = 'digiyatra'
+    app.config['DB_HOST'] = '192.168.0.201'
+    app.config['DB_USER'] = 'DigiYatra'
     app.config['DB_PASSWORD'] = 'Phoenix@001'
     app.config['DB_DATABASE'] = 'DigiYatra'
 
-    app.run(host="0.0.0.0", port=5000, debug=True, ssl_context=('/home/alpha/DigiYatra/server.cert', '/home/alpha/DigiYatra/server.key'))
+    app.run(host="0.0.0.0", port=5000, debug=True, ssl_context=('DigiYatra/DigiYatra Rasp/Server/server.cert', 'DigiYatra/DigiYatra Rasp/Server/server.key'))
 
 
 
