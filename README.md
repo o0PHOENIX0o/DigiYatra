@@ -2,7 +2,7 @@
 
 ## Overview
 
-The DigiYatra system implemented on a Raspberry Pi offers a fundamental yet effective solution for improving the boarding process at airports. By integrating simple QR code scanning and basic facial recognition capabilities, this project lays the groundwork for a more streamlined and efficient passenger experience.
+The DigiYatra system implemented on a Raspberry Pi offers a fundamental demonstration for improving the boarding process at airports. By integrating simple QR code scanning and basic facial recognition capabilities, this project lays the groundwork for a more streamlined and efficient passenger experience.
 
 ## Project Setup and Execution Instructions
 
